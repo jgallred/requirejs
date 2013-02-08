@@ -3,6 +3,7 @@
 /**
  * @author Jason
  */
-class Requirejs {
+class Requirejs 
+{
 
 }
