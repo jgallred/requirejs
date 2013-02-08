@@ -1,15 +1,64 @@
 <?php
 /**
- * Description of requirejs
+ * Task for running the r.js optimizer
  *
- * @author Jason
+ * @author Jason Allred
  */
 class Requirejs_Optimize_Task 
 {
-    //put your code here
-    
-    public function run() 
+    /**
+     * Run the r.js optimizer using node and the config file build profile. Additionally applies
+     * and other args
+     * @param array $arguments
+     * @return int
+     */
+    public function run($arguments) 
     {
-        print "Run node js";
+        if(!Config::has("requirejs::config.rjs_location")) {
+            echo "You must specify the location of the r.js file.";
+            return -1;
+        }
+        
+        if(!Config::has("requirejs::config.build_profile")) {
+            echo "You must specify a build_profile in the bundle config file.";
+            return -1;
+        }
+        
+        $cmd = "node ".Config::get("requirejs::config.rjs_location")." -o ".Config::get("requirejs::config.build_profile");
+        
+        if(Config::has("requirejs::config.build_args")) {
+            $cmd .= " ".Config::get("requirejs::config.build_args");
+        }
+        
+        if(count($arguments) > 0) {
+            $cmd .= " ".implode(" ", $arguments);
+        }
+        
+        echo "\n$cmd\n";
+        passthru($cmd);
+        return 0;
+    }
+    
+    /**
+     * 
+     * @param array $arguments
+     * @return int
+     */
+    public function rjs($arguments) 
+    {
+        if(!Config::has("requirejs::config.rjs_location")) {
+            echo "You must specify the location of the r.js file.";
+            return -1;
+        }
+        
+        $cmd = "node ".Config::get("requirejs::config.rjs_location");
+        
+        if(count($arguments) > 0) {
+            $cmd .= " ".implode(" ", $arguments);
+        }
+        
+        echo "\n$cmd\n";
+        passthru($cmd);
+        return 0;   
     }
 }
