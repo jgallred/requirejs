@@ -1,5 +1,5 @@
 <?php
 
-Autoloader::directories(array(
-	Bundle::path('requirejs').'classes'
+Autoloader::namespaces(array(
+    "Requirejs" => Bundle::path('requirejs')."classes/Requirejs"
 ));
