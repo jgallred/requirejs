@@ -37,12 +37,12 @@ class Support
     
     public static function config_has($attr) 
     {
-        return Config::has("requirejs::config.$attr");
+        return Config::has("requirejs.$attr");
     }
     
     public static function config_get($attr)
     {
-        return Config::get("requirejs::config.$attr");
+        return Config::get("requirejs.$attr");
     }
     
     public static function get_requirejs_path()
