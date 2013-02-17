@@ -23,7 +23,7 @@ class Requirejs_Optimize_Task
             return -1;
         }
 
-        $cmd = "node ".path("public")."bundles/requirejs/r.js -o ".Config::get("requirejs.build_profile");
+        $cmd = "node ".  path('public').Bundle::assets("requirejs")."r.js -o ".Config::get("requirejs.build_profile");
 
         if(Config::has("requirejs.build_args")) {
             $cmd .= " ".Config::get("requirejs.build_args");
@@ -47,7 +47,7 @@ class Requirejs_Optimize_Task
      */
     public function rjs($arguments)
     {
-        $cmd = "node ".path("public")."bundles/requirejs/r.js";
+        $cmd = "node ". path('public').Bundle::assets("requirejs")."r.js";
 
         if(count($arguments) > 0) {
             $cmd .= " ".implode(" ", $arguments);
