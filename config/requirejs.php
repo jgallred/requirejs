@@ -58,9 +58,10 @@ return array(
 	*/
 
     "config" => array(
-		"baseUrl" => "js/app/",
+		/* Put your configuration here
+        "baseUrl" => "js/app/",
         "paths" => array(
             
-        )
+        ) */
     )
 );
