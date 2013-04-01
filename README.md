@@ -15,7 +15,7 @@ The <code>requirejs::optimize</code> task lets you run the r.js optimizer within
 to install node on your machine. Specify a [build profile](http://requirejs.org/docs/optimization.html#wholeproject)
 for your modules and set its location in requirejs.php. Then, from the command line, run <code>php artisan requirejs::optimize</code>.
 
-### Optimizing a whole project
+### Storing the build profile
 As an option, you can store your project build configuration with your require configuration. This lets you share shim and path settings between the two. If you use the build_profile configuration, then the profile file will be created at the location specified in build_profile_path automatically when you run the optimize task.
 
 ## Loading require.js into your views
