@@ -24,7 +24,7 @@ class Requirejs_Optimize_Task
         }
 
 
-        if(!Config::has("requirejs.build_profile")) {
+        if(Config::has("requirejs.build_profile")) {
             \Laravel\CLI\Command::run(array("requirejs::optimize:build_profile"));
         }
 
