@@ -5,9 +5,9 @@ use \Laravel\Config as Config;
 use \Laravel\Bundle as Bundle;
 
 /**
- * Provides a handle for including the require.js script and related 
+ * Provides a handle for including the require.js script and related
  * configuration in your view.
- *  
+ *
  * @author Jason Allred
  */
 class Requirejs
@@ -15,10 +15,10 @@ class Requirejs
     /**
      * Returns a script tag for requirejs. Passing a value for $main will
      * set the data-main attribute of the script.
-     * 
+     *
      * @param string $main The module for require to load.
-     * @param array $attributes 
-     * 
+     * @param array $attributes
+     *
      * @return string
      */
     public static function load_require($main = null, $attributes = array())
@@ -34,7 +34,7 @@ class Requirejs
     /**
      * Returns a script element with your configuration from applicaion/config/requirejs.php
      * Make sure you call this method before including the requirejs script in your view
-     * 
+     *
      * @return string
      */
     public static function config()
@@ -49,10 +49,10 @@ class Requirejs
 
     /**
      * Convienence method for loading both your configuration and the requirejs script
-     * 
+     *
      * @param string $main The module for require to load.
      * @param array $attributes
-     * 
+     *
      * @return string
      */
     public static function require_script_config($main = null, $attributes = array())
@@ -62,9 +62,9 @@ class Requirejs
 
     /**
      * Convienence method for testing for configuration file values
-     * 
+     *
      * @param string $attr
-     * 
+     *
      * @return mixed
      */
     private static function config_has($attr)
@@ -74,9 +74,9 @@ class Requirejs
 
     /**
      * Convienence method for getting configuration file values
-     * 
+     *
      * @param string $attr
-     * 
+     *
      * @return mixed
      */
     private static function config_get($attr)
@@ -87,7 +87,7 @@ class Requirejs
     /**
      * Returns the path to the requirejs script based on whether or not the configuration file
      * indicates that the minified version should be used.
-     * 
+     *
      * @return string
      */
     private static function get_requirejs_path()

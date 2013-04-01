@@ -12,8 +12,11 @@ Laravel bundle for managing Requirejs in your application
 ## Using the Optimizer Task
 
 The <code>requirejs::optimize</code> task lets you run the r.js optimizer within the artisan command. You need
-to install node on your machine. Specify a [build profile](http://requirejs.org/docs/optimization.html#wholeproject) 
+to install node on your machine. Specify a [build profile](http://requirejs.org/docs/optimization.html#wholeproject)
 for your modules and set its location in requirejs.php. Then, from the command line, run <code>php artisan requirejs::optimize</code>.
+
+### Optimizing a whole project
+As an option, you can store your project build configuration with your require configuration. This lets you share shim and path settings between the two. If you use the build_profile configuration, then the profile file will be created at the location specified in build_profile_path automatically when you run the optimize task.
 
 ## Loading require.js into your views
 
