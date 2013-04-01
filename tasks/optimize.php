@@ -23,7 +23,10 @@ class Requirejs_Optimize_Task
             return -1;
         }
 
-		\Laravel\CLI\Command::run(array("requirejs::optimize:build_profile"));
+
+        if(!Config::has("requirejs.build_profile")) {
+            \Laravel\CLI\Command::run(array("requirejs::optimize:build_profile"));
+        }
 
         $cmd = "node ".  path('public').Bundle::assets("requirejs")."r.js -o ".Config::get("requirejs.build_profile_path");
 

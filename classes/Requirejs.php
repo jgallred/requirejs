@@ -41,8 +41,7 @@ class Requirejs
     {
         if(self::config_has("config"))
         {
-			Log::info(self::transformJSON(self::config_get("config")));
-            return "<script type=\"text/javascript\"> var require = ".self::transformJSON(self::config_get("config"))."</script>";
+            return "<script type=\"text/javascript\"> var require = ".json_encode(self::config_get("config"))."</script>";
         }
 
         return "";
@@ -100,13 +99,4 @@ class Requirejs
 
         return Bundle::assets("requirejs")."require-min.js";
     }
-
-	public static function transformJSON($array) {
-		return json_encode($array);
-		//TODO Extract JavaScript functions
-		$count = 0;
-		$result = preg_replace('/(\\r|\\n|\\t)/', "", json_encode($array), -1, $count);
-		Log::info("matches=$count");
-		return $result;
-	}
 }
